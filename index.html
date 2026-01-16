@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Number Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lucky Number Game</h1>
+        <p>Guess the lucky number between 1 and 100!</p>
+        
+        <div class="game-area">
+            <input type="number" id="guessInput" placeholder="Enter your guess" min="1" max="100">
+            <button id="submitGuess">Submit Guess</button>
+            <button id="resetGame">New Game</button>
+        </div>
+        
+        <div class="feedback">
+            <p id="message"></p>
+            <p id="attempts"></p>
+        </div>
+        
+        <div class="score">
+            <p>High Score: <span id="highScore">-</span></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
