@@ -1,0 +1,68 @@
+<HTML Lang="en">
+	<HEAD>
+		<META CHARSET="UTF-8">
+		<TITLE>LuckyNumberGame</TITLE>
+		<SCRIPT>
+			class main{
+				//constructor
+				constructor(){
+					
+					this.consoleSelection = document.getElementById("console");
+					this.programName=""
+					//creates a number from 0 to 100
+					this.firstNum= 0;
+					this.SecondNum = 0;
+					this.wins = 0;
+					this.losses = 0;
+					
+				}
+				
+			playGame(){
+				this.SecondNum = Math.floor(Math.random() * 100) + 1;
+				this.firstNum = Math.floor(Math.random() * 100) + 1;	
+				
+				//rules: if 2nd num is higher than 1st win, else lose
+				if(this.firstNum <this.SecondNum){
+				this.wins +=1;
+				this.consoleSelection.innerHTML = "<p> 	You Win! 1st: " + this.firstNum + " < Second: " + this.SecondNum + "</p>";
+				
+				} else {
+				this.losses +=1;
+				this.consoleSelection.innerHTML = "<p> 	You Lose! 1st: " + this.firstNum + " > Second: " + this.SecondNum + "</p>";
+				}
+				
+			this.consoleSelection.innerHTML += "<p>Wins: " + this.wins + " | Losses: " + this.losses + "</p>";
+			
+			//Update the image facebased on wins or losses.
+			const faceImg = document.getElementById('faceImg');
+			if(this.wins>this.losses){
+				faceImg.src= "https://pngimg.com/uploads/smiley/smiley_PNG184.png";
+			} else if(this.wins < this.losses){
+				faceImg.src = "https://freepngimg.com/thumb/face/73750-emoticon-cute-sadness-smiley-sad-free-transparent-image-hq.png";
+			}
+			}
+			
+				
+		}
+		</SCRIPT>
+	</HEAD>
+	<BODY onclick="onclick();">
+		<HEADER><H1>Lucky Number Game</H1></HEADER>
+		<SECTION id="console"></SECTION>
+		<BUTTON id ="rollButton"> Roll Number
+		<IMG id="faceImg" src="" alt="Face" style="width:250px; height: 250px;">
+		
+		</BUTTON>
+		<SCRIPT>
+			myMain = new main();
+			//button element 
+			function globalPlayGame(){
+				myMain.playGame();
+			}
+			const rollButton = document.getElementById('rollButton');
+			//event listener call playGame function on main
+			rollButton.addEventListener('click', globalPlayGame);
+		</SCRIPT>
+	
+	</BODY>
+</HTML>
